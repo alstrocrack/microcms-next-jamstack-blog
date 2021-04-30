@@ -1,9 +1,27 @@
 // pages/index.js
 import Link from 'next/link';
+import styles from '../styles/Home.module.scss'
 
 export default function Home({ blog }) {
   return (
     <div>
+      <header className={styles.l_header}>
+        <div className={styles.l_header_image}>
+          <img src="./b-header-image.jpg" alt="yuto urushima"/>
+        </div>
+        <p className="l-header_text">名古屋のフロントエンドエンジニア</p>
+        <ul className="l-header_sns">
+          <li className="l-header_sns-item">
+            <img src="./b-twitter-icon.png" alt="twitter"/>
+          </li>
+          <li className="l-header_sns-item">
+            <img src="./b-twitter-icon.png" alt="twitter"/>
+          </li>
+          <li className="l-header_sns-item">
+            <img src="./b-twitter-icon.png" alt="twitter"/>
+          </li>
+        </ul>
+      </header>
       <ul>
         {blog.map(blog => (
           <li key={blog.id}>
