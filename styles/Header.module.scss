@@ -1,0 +1,44 @@
+.container {
+  background-color: #45d9fd;
+  background-color: #eee;
+  width: 31.25%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  width: 40%;
+}
+
+.image {
+  width: 300px;
+  & > img {
+    width: 100%;
+  }
+}
+
+.name {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.text {
+  margin-top: 10px;
+}
+
+.sns {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.icon {
+  width: 30px;
+  & > img {
+    width: 100%;
+  }
+}
