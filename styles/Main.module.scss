@@ -1,13 +1,69 @@
-.container {
+// const
+$border-Color: #ccc;
 
+
+.container {
+    padding: 90px 80px;
+    width: 68.75%;
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .title {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
 }
 
 .blogList {
     list-style: none;
+}
+
+.card {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid $border-Color;
+    &:first-child {
+        border-top: 1px solid $border-Color;
+    }
+}
+
+.link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.blogTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.category {
+    color: #bbb;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    padding: 1px 10px;
+    border-radius: 20px;
+    border: 1px solid $border-Color;
+}
+.date {
+    font-weight: 600;
+}
+
+.content {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }

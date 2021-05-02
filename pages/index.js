@@ -19,13 +19,25 @@ export default function Home({ blog }) {
           </p>
           <ul className={header.sns}>
             <li className={header.icon}>
-              <img src="./b-twitter-icon.png" alt="twitter"/>
+              <Link href="https://twitter.com/Frontend_1220">
+                <a target="_blank">
+                  <img src="./b-twitter-icon.png" alt="twitter"/>
+                </a>
+              </Link>
             </li>
             <li className={header.icon}>
-              <img src="./b-facebook-icon.png" alt="facebook"/>
+              <Link href="https://www.facebook.com/profile.php?id=100036153361841">
+                <a target="_blank">
+                  <img src="./b-facebook-icon.png" alt="facebook"/>
+                </a>
+              </Link>
             </li>
             <li className={header.icon}>
-              <img src="./b-github-icon.png" alt="github"/>
+              <Link href="https://github.com/YutoUrushima">
+                <a target="_blank">
+                  <img src="./b-github-icon.png" alt="github"/>
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -33,16 +45,25 @@ export default function Home({ blog }) {
       <main className={main.container}>
         <h1 className={main.title}>Yuto Urushima</h1>
         <ul className={main.blogList}>
-          {console.log(blog)}
+          {/* デバッグ用 */}
+          {/* {console.log(blog)} */}
+          {/* デバッグ用 */}
           {blog.map(blog => (
-            <li key={blog.id}>
-              <img src={blog.image.url}/>
+            <li key={blog.id} className={main.card}>
               <Link href={`/news/${blog.id}`}>
-                <a>{blog.title}</a>
+                <a className={main.link}>
+                  <h3 className={main.blogTitle}>
+                    {blog.title}
+                    <span className={main.category}>{blog.category.name}</span>
+                  </h3>
+                  <p className={main.date}>{blog.updatedAt.slice(0, 10).replace(/-/g, '/')}</p>
+                  <p className={main.content}>{blog.content}</p>
+                </a>
               </Link>
             </li>
           ))}
         </ul>
+        <p className={main.copyright}>Copyright ©2021 YutoUrushima All Rights Reserved.</p>
       </main>
     </div>
   );

@@ -6,6 +6,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .wrap {
@@ -13,7 +16,7 @@
 }
 
 .image {
-  width: 300px;
+  width: 100%;
   & > img {
     width: 100%;
   }
@@ -38,7 +41,7 @@
 
 .icon {
   width: 30px;
-  & > img {
+  img {
     width: 100%;
   }
 }
