@@ -1,0 +1,119 @@
+@import '_config';
+
+.container {
+    padding: 90px 80px;
+    width: 68.75%;
+    height: 100vh;
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
+    @include media-sp {
+        padding: 100px 20px 0;
+        width: 100%;
+    }
+}
+
+// 人型ボタン
+.button {
+    background-color: $border-Color;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    padding: 12px;
+    & > img {
+        width: 100%;
+    }
+    @include media-pc {
+        display: none;
+    }
+    @include media-sp {
+        display: block;
+    }
+}
+
+.title {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    @include media-sp {
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 200;
+        pointer-events: none;
+    }
+}
+
+.blogList {
+    list-style: none;
+}
+
+.card {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid $border-Color;
+    &:first-child {
+        border-top: 1px solid $border-Color;
+    }
+}
+
+.link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.blogTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    @include media-sp {
+        font-size: 1.2rem;
+    }
+}
+
+.category {
+    color: #bbb;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    padding: 1px 10px;
+    border-radius: 20px;
+    border: 1px solid $border-Color;
+    @include media-sp {
+        font-size: 0.6rem;
+    }
+}
+.date {
+    font-weight: 600;
+    @include media-sp {
+        font-size: 0.6rem;
+    }
+}
+
+.content {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    @include media-sp {
+        font-size: 1rem;
+    }
+}
+
+.copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    @include media-sp {
+        padding-left: 20px;
+        position: relative;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.7rem;
+    }
+}

@@ -1,17 +1,32 @@
-import styles from '../../styles/Home.module.scss'
+import single from '../../styles/Single.module.scss'
+import Link from 'next/link';
 
 // pages/news/[id].js
 export default function BlogId({ blog }) {
+  console.log(blog);
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+    <main className={single.main}>
+      <h1 className={single.title}>{blog.title}</h1>
+      <p className={single.date}>
+        {blog.updatedAt.slice(0, 10).replace(/-/g, '/')}
+        <span className={single.category}>{blog.category.name}</span>
+      </p>
+      <div className={single.image}>
+        <img src={blog.image.url} />
+      </div>
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.content}`,
         }}
-        className={styles.post}
+        className={single.post}
       />
+      <Link href="/">
+        <div className={single.button}>
+          <a className={single.back}>
+            to Index
+          </a>
+        </div>
+      </Link>
     </main>
   );
 }
