@@ -3,6 +3,7 @@
 .container {
     padding: 90px 80px;
     width: 68.75%;
+    height: 100vh;
     position: relative;
     margin-right: 0;
     margin-left: auto;
@@ -109,8 +110,10 @@
     bottom: 20px;
     right: 20px;
     @include media-sp {
+        padding-left: 20px;
         position: relative;
         margin-top: 40px;
-        padding: 0 20px;
+        text-align: center;
+        font-size: 0.7rem;
     }
 }

@@ -1,4 +1,3 @@
-// pages/index.js
 import Link from 'next/link';
 import header from '../styles/Header.module.scss'
 import layout from '../styles/Layout.module.scss'
