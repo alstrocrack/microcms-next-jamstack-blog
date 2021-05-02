@@ -1,0 +1,21 @@
+// media-query
+$breakpoint: 1000px;
+/// @group media-query
+$media-pc: 'screen and (min-width: #{$breakpoint + 1px})';
+/// @group media-query
+$media-sp: 'screen and (max-width: #{$breakpoint})';
+
+@mixin media-pc {
+    @media #{$media-pc} {
+        @content;
+    }
+}
+
+@mixin media-sp {
+    @media #{$media-sp} {
+        @content;
+    }
+}
+
+// color
+$border-Color: #ccc;

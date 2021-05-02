@@ -1,6 +1,4 @@
-// const
-$border-Color: #ccc;
-
+@import '_config';
 
 .container {
     padding: 90px 80px;
@@ -8,12 +6,44 @@ $border-Color: #ccc;
     position: relative;
     margin-right: 0;
     margin-left: auto;
+    @include media-sp {
+        padding: 100px 20px 0;
+        width: 100%;
+    }
+}
+
+// 人型ボタン
+.button {
+    background-color: $border-Color;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    padding: 12px;
+    & > img {
+        width: 100%;
+    }
+    @include media-pc {
+        display: none;
+    }
+    @include media-sp {
+        display: block;
+    }
 }
 
 .title {
     position: fixed;
     top: 20px;
     right: 20px;
+    @include media-sp {
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 200;
+        pointer-events: none;
+    }
 }
 
 .blogList {
@@ -40,6 +70,9 @@ $border-Color: #ccc;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    @include media-sp {
+        font-size: 1.2rem;
+    }
 }
 
 .category {
@@ -49,9 +82,15 @@ $border-Color: #ccc;
     padding: 1px 10px;
     border-radius: 20px;
     border: 1px solid $border-Color;
+    @include media-sp {
+        font-size: 0.6rem;
+    }
 }
 .date {
     font-weight: 600;
+    @include media-sp {
+        font-size: 0.6rem;
+    }
 }
 
 .content {
@@ -60,10 +99,18 @@ $border-Color: #ccc;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-top: 10px;
+    @include media-sp {
+        font-size: 1rem;
+    }
 }
 
 .copyright {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    @include media-sp {
+        position: relative;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
 }

@@ -1,4 +1,4 @@
-import styles from '../../styles/Home.module.scss'
+// import styles from '../../styles/Home.module.scss'
 
 // pages/news/[id].js
 export default function BlogId({ blog }) {

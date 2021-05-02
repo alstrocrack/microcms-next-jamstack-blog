@@ -3,11 +3,35 @@ import Link from 'next/link';
 import header from '../styles/Header.module.scss'
 import layout from '../styles/Layout.module.scss'
 import main from '../styles/Main.module.scss'
+import gsap from 'gsap'
 
 export default function Home({ blog }) {
+
+  // function noScroll(event) {
+  //   event.preventDefault();
+  //   document.addEventListener('touchmove', noScroll, {passive: false});
+  // } 
+
+  function openProfile() {
+    const profile = document.getElementById('profile');
+    gsap.to(profile, {
+      left: 0
+    });
+  }
+
+  function closeProfile() {
+    const profile = document.getElementById('profile');
+    gsap.to(profile, {
+      left: '-100%'
+    });
+  }
+
   return (
     <div className={layout.container}>
-      <header className={header.container}>
+      <header className={header.container} id="profile">
+        <div className={header.button} onClick={closeProfile}>
+          <img src="./b-close-icon.svg"/>
+        </div>
         <div className={header.wrap}>
           <div className={header.image}>
             <img src="./b-header-image.jpg" alt="yuto urushima"/>
@@ -43,6 +67,9 @@ export default function Home({ blog }) {
         </div>
       </header>
       <main className={main.container}>
+        <div className={main.button} onClick={openProfile}>
+          <img src="./b-button-icon.svg"/>
+        </div>
         <h1 className={main.title}>Yuto Urushima</h1>
         <ul className={main.blogList}>
           {/* デバッグ用 */}
