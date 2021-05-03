@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import main from '../styles/Main.module.scss'
 import gsap from 'gsap'
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 export default function Home({ blog }) {
 
