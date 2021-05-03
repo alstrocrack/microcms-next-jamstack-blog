@@ -1,12 +1,9 @@
 import Link from 'next/link'
 import gsap from 'gsap'
+import { handleTouchMove } from '../utils/scroll'
 import header from '../styles/Header.module.scss'
 
 export default function Header(props) {
-
-    function handleTouchMove(event) {
-        event.preventDefault();
-    }
       
     function closeProfile() {
         const profile = document.getElementById('profile');

@@ -2,12 +2,9 @@ import Link from 'next/link';
 import main from '../styles/Main.module.scss'
 import gsap from 'gsap'
 import Layout from '../components/Layout';
+import { handleTouchMove } from '../utils/scroll'
 
 export default function Home({ blog }) {
-
-  function handleTouchMove(event) {
-    event.preventDefault();
-  }
   
   function openProfile() {
     const profile = document.getElementById('profile');
