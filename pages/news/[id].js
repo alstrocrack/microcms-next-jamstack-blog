@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import single from '../../styles/Single.module.scss'
 import Link from 'next/link';
 
@@ -5,29 +6,42 @@ import Link from 'next/link';
 export default function BlogId({ blog }) {
   console.log(blog);
   return (
-    <main className={single.main}>
-      <h1 className={single.title}>{blog.title}</h1>
-      <p className={single.date}>
-        {blog.updatedAt.slice(0, 10).replace(/-/g, '/')}
-        <span className={single.category}>{blog.category.name}</span>
-      </p>
-      <div className={single.image}>
-        <img src={blog.image.url} />
-      </div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.content}`,
-        }}
-        className={single.post}
-      />
-      <Link href="/">
-        <div className={single.button}>
-          <a className={single.back}>
-            to Index
-          </a>
+    <div>
+      <Head>
+          <title>YutoUrushima | {blog.title}</title>
+          <meta property="og:url" content="https://pedantic-hugle-406857.netlify.app" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="YutoUrushima" />
+          <meta property="og:description" content="Next.js + microCMSで作ったデモブログサイトです。" />
+          <meta property="og:site_name" content="YutoUrushima" />
+          <meta property="og:image" content="./b-ogp-image.jpg" />
+          <meta name="twitter:card" content="Summary with Large Image" />
+          <meta name="twitter:site" content="@Frontend_1220" />
+      </Head>
+      <main className={single.main}>
+        <h1 className={single.title}>{blog.title}</h1>
+        <p className={single.date}>
+          {blog.updatedAt.slice(0, 10).replace(/-/g, '/')}
+          <span className={single.category}>{blog.category.name}</span>
+        </p>
+        <div className={single.image}>
+          <img src={blog.image.url} alt={blog.title} />
         </div>
-      </Link>
-    </main>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${blog.content}`,
+          }}
+          className={single.post}
+        />
+        <Link href="/">
+          <div className={single.button}>
+            <a className={single.back}>
+              to Index
+            </a>
+          </div>
+        </Link>
+      </main>
+    </div>
   );
 }
   
