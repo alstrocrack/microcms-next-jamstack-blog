@@ -2,7 +2,7 @@ import Link from 'next/link';
 import main from '../styles/Main.module.scss'
 import gsap from 'gsap'
 import Layout from '../components/Layout';
-import { handleTouchMove } from '../utils/scroll'
+import { removeScroll } from '../utils/scroll'
 
 export default function Home({ blog }) {
   
@@ -11,8 +11,7 @@ export default function Home({ blog }) {
     gsap.to(profile, {
       left: 0
     });
-    //スクロール禁止
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    removeScroll();
   }
 
   return (

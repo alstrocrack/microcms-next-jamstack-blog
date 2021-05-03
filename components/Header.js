@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import gsap from 'gsap'
-import { handleTouchMove } from '../utils/scroll'
+import { addScroll } from '../utils/scroll'
 import header from '../styles/Header.module.scss'
 
 export default function Header(props) {
@@ -10,8 +10,7 @@ export default function Header(props) {
         gsap.to(profile, {
           left: '-100%'
         });
-        //スクロール復帰
-        document.removeEventListener('touchmove', handleTouchMove, { passive: false });
+        addScroll();
     }
 
     return (
