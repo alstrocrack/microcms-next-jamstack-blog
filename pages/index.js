@@ -40,7 +40,6 @@ export default function Home({ blog }) {
               </li>
             ))}
           </ul>
-          <p className={main.copyright}>Copyright ©2021 YutoUrushima All Rights Reserved.</p>
         </main>
     </Layout>
   );

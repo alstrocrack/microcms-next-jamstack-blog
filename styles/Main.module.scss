@@ -49,6 +49,12 @@
 
 .blogList {
     list-style: none;
+    @include media-pc {
+        padding-bottom: 30px;
+    }
+    @include media-sp {
+        padding-bottom: 20px;
+    }
 }
 
 .card {
@@ -102,18 +108,5 @@
     margin-top: 10px;
     @include media-sp {
         font-size: 1rem;
-    }
-}
-
-.copyright {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    @include media-sp {
-        padding-left: 20px;
-        position: relative;
-        margin-top: 40px;
-        text-align: center;
-        font-size: 0.7rem;
     }
 }
