@@ -30,23 +30,17 @@ export default function Header(props) {
             <ul className={header.sns}>
                 <li className={header.icon}>
                 <Link href="https://twitter.com/Frontend_1220">
-                    <a target="_blank">
                     <img src="./b-twitter-icon.png" alt="twitter"/>
-                    </a>
                 </Link>
                 </li>
                 <li className={header.icon}>
                 <Link href="https://www.facebook.com/profile.php?id=100036153361841">
-                    <a target="_blank">
                     <img src="./b-facebook-icon.png" alt="facebook"/>
-                    </a>
                 </Link>
                 </li>
                 <li className={header.icon}>
                 <Link href="https://github.com/YutoUrushima">
-                    <a target="_blank">
                     <img src="./b-github-icon.png" alt="github"/>
-                    </a>
                 </Link>
                 </li>
             </ul>

@@ -8,8 +8,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-        <Head />
+      <Html lang='ja' prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#'>
+        <Head>
+          <link rel="dns-prefetch" href="//www.google.co.jp" />
+        </Head>
         <body>
           <Main />
           <NextScript />

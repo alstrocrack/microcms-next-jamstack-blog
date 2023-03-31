@@ -35,9 +35,7 @@ export default function BlogId({ blog }) {
         />
         <Link href="/">
           <div className={single.button}>
-            <a className={single.back}>
               to Index
-            </a>
           </div>
         </Link>
       </main>

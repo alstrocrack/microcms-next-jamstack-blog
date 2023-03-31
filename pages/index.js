@@ -22,20 +22,15 @@ export default function Home({ blog }) {
           </div>
           <h1 className={main.title}>Yuto Urushima</h1>
           <ul className={main.blogList}>
-            {/* デバッグ用 */}
-            {/* {console.log(blog)} */}
-            {/* デバッグ用 */}
             {blog.map(blog => (
               <li key={blog.id} className={main.card}>
                 <Link href={`/news/${blog.id}`}>
-                  <a className={main.link}>
                     <h3 className={main.blogTitle}>
                       {blog.title}
                       <span className={main.category}>{blog.category.name}</span>
                     </h3>
                     <p className={main.date}>{blog.updatedAt.slice(0, 10).replace(/-/g, '/')}</p>
                     <p className={main.content}>{blog.content}</p>
-                  </a>
                 </Link>
               </li>
             ))}
