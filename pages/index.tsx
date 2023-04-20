@@ -4,14 +4,8 @@ import gsap from "gsap";
 import Layout from "../components/Layout";
 import { removeScroll } from "../utils/scroll";
 import React from "react";
-
-interface Blog {
-  id: number;
-  title: string;
-  category: any;
-  updatedAt: string;
-  content: string;
-}
+import axios from "axios";
+import { Blog, FetchedContents } from "../models/Blog";
 
 const Home: React.FC<Blog[]> = (blog) => {
   const openProfile = () => {
@@ -52,15 +46,18 @@ export default Home;
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
-  const key = {
-    headers: { "X-API-KEY": process.env.API_KEY },
-  };
-  const data = await fetch("https://yutourushima.microcms.io/api/v1/news", key)
-    .then((res) => res.json())
-    .catch(() => null);
-  return {
-    props: {
-      blog: data.contents,
-    },
-  };
+  await axios
+    .get<FetchedContents>("https://yutourushima.microcms.io/api/v1/news", {
+      headers: { "X-API-KEY": process.env.API_KEY },
+    })
+    .then((response) => {
+      return {
+        props: {
+          blog: response.data.contents,
+        },
+      };
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
 };
