@@ -11,12 +11,17 @@ interface Context {
   };
 }
 
+interface BlogProps {
+  blog: Blog;
+}
+
 // pages/news/[id].js
-const BlogId: React.FC<Blog> = ({ title, updatedAt, category, image, content }) => {
+const BlogId: React.FC<BlogProps> = (blog) => {
+  const blogData = blog.blog;
   return (
     <div>
       <Head>
-        <title>YutoUrushima | {title}</title>
+        <title>YutoUrushima | {blogData.title}</title>
         <meta property="og:url" content="https://pedantic-hugle-406857.netlify.app" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="YutoUrushima" />
@@ -27,17 +32,19 @@ const BlogId: React.FC<Blog> = ({ title, updatedAt, category, image, content }) 
         <meta name="twitter:site" content="@Frontend_1220" />
       </Head>
       <main className={single.main}>
-        <h1 className={single.title}>{title}</h1>
+        <h1 className={single.title}>{blogData.title}</h1>
         <p className={single.date}>
-          {updatedAt.slice(0, 10).replace(/-/g, "/")}
-          <span className={single.category}>{category.name}</span>
+          {blogData.updatedAt.slice(0, 10).replace(/-/g, "/")}
+          <span className={single.category}>{blogData.category.name}</span>
         </p>
-        <div className={single.image}>
-          <img src={image.url} alt={title} />
-        </div>
+        {blogData.image && (
+          <div className={single.image}>
+            <img src={blogData.image.url} alt={blogData.title} />
+          </div>
+        )}
         <div
           dangerouslySetInnerHTML={{
-            __html: `${content}`,
+            __html: `${blogData.content}`,
           }}
           className={single.post}
         />
@@ -53,27 +60,33 @@ export default BlogId;
 
 // 静的生成のためのパスを指定します
 export const getStaticPaths = async () => {
+  let data = {};
   await axios
     .get<FetchedContents>("https://yutourushima.microcms.io/api/v1/news", {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
       const paths = response.data.contents.map((content) => `/news/${content.id}`);
-      return { paths, fallback: false };
+      data = {
+        paths,
+        fallback: false,
+      };
     })
     .catch((error) => {
       throw new Error(error);
     });
+  return data;
 };
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context: Context) => {
+  let data = {};
   await axios
     .get<FetchedContents>(`https://yutourushima.microcms.io/api/v1/news/${encodeURI(context.params.id.toString())}`, {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
-      return {
+      data = {
         props: {
           blog: response.data,
         },
@@ -82,4 +95,5 @@ export const getStaticProps = async (context: Context) => {
     .catch((error) => {
       throw new Error(error);
     });
+  return data;
 };
