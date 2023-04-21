@@ -52,7 +52,7 @@ export default Home;
 export const getStaticProps = async () => {
   let data = {};
   await axios
-    .get<FetchedContents>("https://yutourushima.microcms.io/api/v1/news", {
+    .get<FetchedContents>(process.env.API_URL!, {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {

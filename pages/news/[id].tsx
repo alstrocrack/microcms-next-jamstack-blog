@@ -62,7 +62,7 @@ export default BlogId;
 export const getStaticPaths = async () => {
   let data = {};
   await axios
-    .get<FetchedContents>("https://yutourushima.microcms.io/api/v1/news", {
+    .get<FetchedContents>(process.env.API_URL!, {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
@@ -82,7 +82,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context: Context) => {
   let data = {};
   await axios
-    .get<FetchedContents>(`https://yutourushima.microcms.io/api/v1/news/${encodeURI(context.params.id.toString())}`, {
+    .get<FetchedContents>(`${process.env.API_URL!}/${encodeURI(context.params.id.toString())}`, {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
