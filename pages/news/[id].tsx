@@ -63,7 +63,7 @@ export const getStaticPaths = async () => {
   let data = {};
   await axios
     .get<FetchedContents>(process.env.API_URL!, {
-      headers: { "X-API-KEY": process.env.API_KEY },
+      headers: { "X-MICROCMS-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
       const paths = response.data.contents.map((content) => `/news/${content.id}`);
@@ -83,7 +83,7 @@ export const getStaticProps = async (context: Context) => {
   let data = {};
   await axios
     .get<FetchedContents>(`${process.env.API_URL!}/${encodeURI(context.params.id.toString())}`, {
-      headers: { "X-API-KEY": process.env.API_KEY },
+      headers: { "X-MICROCMS-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
       data = {
