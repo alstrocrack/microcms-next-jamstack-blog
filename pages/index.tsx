@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import { removeScroll } from "../utils/scroll";
 import React from "react";
 import axios from "axios";
-import { Blog, FetchedContents } from "../models/Blog";
+import { Blog, FetchedContents } from "../types/Blog";
 
 interface BlogsProps {
   blogs: Blog[];
@@ -48,7 +48,7 @@ const Home: React.FC<BlogsProps> = (blogs) => {
 
 export default Home;
 
-// データをテンプレートに受け渡す部分の処理を記述します
+// Describe the process of passing data to the template
 export const getStaticProps = async () => {
   let data = {};
   await axios

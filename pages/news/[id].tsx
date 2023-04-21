@@ -1,7 +1,7 @@
 import Head from "next/head";
 import single from "../../styles/Single.module.scss";
 import Link from "next/link";
-import { Blog, FetchedContents } from "../../models/Blog";
+import { Blog, FetchedContents } from "../../types/Blog";
 import React from "react";
 import axios from "axios";
 
@@ -58,7 +58,7 @@ const BlogId: React.FC<BlogProps> = (blog) => {
 
 export default BlogId;
 
-// 静的生成のためのパスを指定します
+// Specifies the path for static generation
 export const getStaticPaths = async () => {
   let data = {};
   await axios
@@ -78,7 +78,7 @@ export const getStaticPaths = async () => {
   return data;
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
+// Describe the process of passing data to the template
 export const getStaticProps = async (context: Context) => {
   let data = {};
   await axios
