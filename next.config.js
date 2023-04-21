@@ -2,5 +2,5 @@
  * @type {import('next').NextConfig}
  */
 module.exports = {
-  target: "serverless",
+  /* ここにオプション設定を書きます */
 };
