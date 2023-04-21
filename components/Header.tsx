@@ -30,7 +30,7 @@ const Header: React.FC = () => {
         </p>
         <ul className={header.sns}>
           <li className={header.icon}>
-            <Link href="https://twitter.com/Frontend_1220">
+            <Link href="https://twitter.com/developer_japan">
               <img src="./b-twitter-icon.png" alt="twitter" />
             </Link>
           </li>
