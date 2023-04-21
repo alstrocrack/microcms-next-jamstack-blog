@@ -7,7 +7,11 @@ import React from "react";
 import axios from "axios";
 import { Blog, FetchedContents } from "../models/Blog";
 
-const Home: React.FC<Blog[]> = (blog) => {
+interface BlogsProps {
+  blogs: Blog[];
+}
+
+const Home: React.FC<BlogsProps> = (blogs) => {
   const openProfile = () => {
     const profile = document.getElementById("profile");
     gsap.to(profile, {
@@ -24,7 +28,7 @@ const Home: React.FC<Blog[]> = (blog) => {
         </div>
         <h1 className={main.title}>Yuto Urushima</h1>
         <ul className={main.blogList}>
-          {blog.map((blog) => (
+          {blogs.blogs.map((blog) => (
             <li key={blog.id} className={main.card}>
               <Link href={`/news/${blog.id}`}>
                 <h3 className={main.blogTitle}>
@@ -46,18 +50,20 @@ export default Home;
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
+  let data = {};
   await axios
     .get<FetchedContents>("https://yutourushima.microcms.io/api/v1/news", {
       headers: { "X-API-KEY": process.env.API_KEY },
     })
     .then((response) => {
-      return {
+      data = {
         props: {
-          blog: response.data.contents,
+          blogs: response.data.contents,
         },
       };
     })
     .catch((error) => {
       throw new Error(error);
     });
+  return data;
 };
