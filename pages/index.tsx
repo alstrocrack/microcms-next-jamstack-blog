@@ -33,7 +33,7 @@ const Home: React.FC<BlogsProps> = (blogs) => {
               <Link href={`/news/${blog.id}`}>
                 <h3 className={main.blogTitle}>
                   {blog.title}
-                  <span className={main.category}>{blog.category.name}</span>
+                  {blog.category && <span className={main.category}>{blog.category.name}</span>}
                 </h3>
                 <p className={main.date}>{blog.updatedAt.slice(0, 10).replace(/-/g, "/")}</p>
                 <p className={main.content}>{blog.content}</p>

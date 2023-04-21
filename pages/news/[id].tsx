@@ -35,7 +35,7 @@ const BlogId: React.FC<BlogProps> = (blog) => {
         <h1 className={single.title}>{blogData.title}</h1>
         <p className={single.date}>
           {blogData.updatedAt.slice(0, 10).replace(/-/g, "/")}
-          <span className={single.category}>{blogData.category.name}</span>
+          {blogData.category && <span className={single.category}>{blogData.category.name}</span>}
         </p>
         {blogData.image && (
           <div className={single.image}>
