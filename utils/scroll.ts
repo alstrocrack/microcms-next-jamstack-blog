@@ -1,13 +1,13 @@
-function handleTouchMove(event) {
-    event.preventDefault();
-}
+const handleTouchMove = (event: Event) => {
+  event.preventDefault();
+};
 
-// スクロール禁止
-export function removeScroll() {
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
-}
+// Scroll Prohibited
+export const removeScroll = () => {
+  document.addEventListener("touchmove", handleTouchMove, { passive: false });
+};
 
-//スクロール復帰
-export function addScroll() {
-    document.removeEventListener('touchmove', handleTouchMove, { passive: false });
-}
+//Scroll Back
+export const addScroll = () => {
+  document.removeEventListener("touchmove", handleTouchMove);
+};
