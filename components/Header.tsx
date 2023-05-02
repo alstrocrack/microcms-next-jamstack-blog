@@ -1,4 +1,3 @@
-import Link from "next/link";
 import gsap from "gsap";
 import { addScroll } from "../utils/scroll";
 import header from "../styles/Header.module.scss";
@@ -30,19 +29,19 @@ const Header: React.FC = () => {
         </p>
         <ul className={header.sns}>
           <li className={header.icon}>
-            <Link href="https://twitter.com/developer_japan">
+            <a href="https://twitter.com/developer_japan" target="_blank" rel="noopener noreferrer">
               <img src="./b-twitter-icon.png" alt="twitter" />
-            </Link>
+            </a>
           </li>
           <li className={header.icon}>
-            <Link href="https://www.facebook.com/profile.php?id=100036153361841">
+            <a href="https://www.facebook.com/profile.php?id=100036153361841" target="_blank" rel="noopener noreferrer">
               <img src="./b-facebook-icon.png" alt="facebook" />
-            </Link>
+            </a>
           </li>
           <li className={header.icon}>
-            <Link href="https://github.com/YutoUrushima">
+            <a href="https://github.com/YutoUrushima" target="_blank" rel="noopener noreferrer">
               <img src="./b-github-icon.png" alt="github" />
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
